@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block titulo %}
+<title Sistema de inscripciones></title>
+{% endblock %}
+
+{% block contenido %}
+<div class="alert alert-info display-1 text-center">
+    SISTEMA DE INSCRIPCIONES
+</div>
+
+<div class="container text-center">
+    <div class="row">
+        <div class="col">
+        <a href="/inscripcion" class="btn btn-info">CRUD</a>
+        </div>
+        <div class="col">
+            <a href="/inscripcionDB" class="btn btn-danger">API</a>
+        </div>
+        <div class="col">
+        <a href="/listaInscripcion" class="btn btn-primary">CREATED BASED VIEW</a>
+        </div>
+        <div class="col">
+            <a href="/listaInstitucion" class="btn btn-success">FUNCTION BASED VIEW</a>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+
+

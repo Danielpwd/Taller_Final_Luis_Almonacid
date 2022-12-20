@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block titulo %}
+<title></title>
+{% endblock %}
+
+
+
+{% block contenido %}
+<div class="alert alert-success display-1">LISTA DE INSCRIPCIONES</div>
+{% if inscripciones %}
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>NOMBRE</th>
+            <th>TELEFONO</th>
+            <th>FECHA DE INSCRIPCION</th>
+            <th>INSTITUCION</th>
+            <th>HORA DE INSCRIPCION</th>
+            <th>ESTADO</th>
+            <th>OBSERVACION</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for inscripcion in inscripciones %}
+        <tr>
+            <td scope ="row">{{ inscripcion.id}}</td>
+            <td>{{ inscripcion.nombre}}</td>
+            <td>{{ inscripcion.telefono}}</td>
+            <td>{{ inscripcion.fecha_inscripcion}}</td>
+            <td>{{ inscripcion.institucion}}</td>
+            <td>{{ inscripcion.hora_inscripcion}}</td>
+            <td>{{ inscripcion.estado}}</td>
+            <td>{{ inscripcion.observacion}}</td>
+            <td><a href="/inscripcion/eliminar_inscripciones/{{inscripcion.id}}" class="btn btn-success btn-sm"> <i class="bi bi-pencil"></i> Eliminar </a></td>
+            <td><a href="/inscripcion/actualizar_inscripciones/{{inscripcion.id}}" class="btn btn-danger btn-sm"><i class="bi bi-trash"></i> Actualizar </a></td>
+        </tr>
+        {% endfor %}
+    </tbody>            
+</table>    
+{% else %}
+    <div class="alert alert-info">No hay incripciones que mostrar</div>
+{% endif %}
+
+<a href="../" class="btn btn-danger">VOLVER</a>
+<a href="/inscripcion/agregar_inscripciones" class="btn btn-info float-end">AGREGAR INSCRIPCION</a>
+{% endblock %}
